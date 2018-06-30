@@ -9,6 +9,7 @@ pipeline {
                 sh 'touch from-jenkins/test.txt'
                 }
         }
+        }
     stages {
 
         stage('Step 2  pipeline'){
@@ -18,6 +19,7 @@ pipeline {
                 sh 'touch from-jenkins/test.txt'
                 }
         }
+        }
         stages {
 
         stage('Step 3  pipeline'){
@@ -26,6 +28,7 @@ pipeline {
                 sh 'mkdir from-jenkins'
                 sh 'touch from-jenkins/test.txt'
                 }
+        }
         }
 }
 }
