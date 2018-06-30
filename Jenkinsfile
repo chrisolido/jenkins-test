@@ -10,23 +10,13 @@ pipeline {
                 }
         }
         }
-    stages {
-
-        stage('Step 2  pipeline'){
-          steps{
-		    echo 'test1'
-                sh 'mkdir from-jenkins'
-                sh 'touch from-jenkins/test.txt'
-                }
-        }
-        }
         stages {
 
-        stage('Step 3  pipeline'){
+        stage('Step 2 pipeline'){
           steps{
 		    echo 'test1'
-                sh 'mkdir from-jenkins'
-                sh 'touch from-jenkins/test.txt'
+                sh 'ls'
+                sh 'ls -la'
                 }
         }
         }
