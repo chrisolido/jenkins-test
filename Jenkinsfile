@@ -8,11 +8,11 @@ pipeline {
                 sh 'mkdir from-jenkins'
                 sh 'touch from-jenkins/test.txt'
                 }
-        stage('testing pipeline'){
+        stage('second testing pipeline'){
           steps{
-		    echo 'test1'
-                sh 'mkdir test'
-                sh 'touch test/test.txt'
+		    echo 'test2'
+                sh 'mkdir test2'
+                sh 'touch test2/test.txt'
                 }
         }
 
