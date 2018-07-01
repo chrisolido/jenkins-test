@@ -2,28 +2,34 @@ pipeline {
     agent any
     stages {
 
-        stage('testing pipeline'){
+        stage('Create and activate a virtual environment'){
           steps{
-		    echo 'test1'
-                sh 'rm -rf from-jenkins'
-                sh 'mkdir from-jenkins'
-                sh 'touch from-jenkins/test.txt'
+		    echo 'Create and Activate'
+                sh 'cd /var/www/demoapp'
+                sh 'virtualenv venv'
+                sh '. venv/bin/activate'
                 }
         }
-        stage('second testing pipeline'){
+        stage('Create as simple Flask application'){
           steps{
-		    echo 'test2'
-                sh 'rm -rf test2'
-                sh 'mkdir test2'
-                sh 'touch test2/test.txt'
+		    echo 'Create as simple Flask application
+                sh 'pip install flask'
+		sh 'cat >/var/www/demoapp/hello.py'
+		    from flask import Flask
+		    app = Flask(__name__)
+ 
+                    @app.route("/")
+                    def hello():
+                    return "Hello World!"
+
+                    if __name__ == "__main__":
+                    app.run(host='0.0.0.0', port=8080)
                 }
         }
-                stage('third testing pipeline'){
+                stage('Let’s execute the script'){
           steps{
-		    echo 'test3'
-                sh 'rm -rf test3'
-                sh 'mkdir test3'
-                sh 'touch test3/test.txt'
+		    echo 'Let’s execute the script'
+                sh 'python hello.py'
                 }
         }
 
